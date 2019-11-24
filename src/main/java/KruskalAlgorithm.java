@@ -84,12 +84,12 @@ public class KruskalAlgorithm {
         return set;
     }
 
-    private boolean isAcyclic(String srcAlias, String destAlias) {
+    private boolean isAcyclic(String from, String to) {
         subSetFrom = new HashSet<>();
         subSetTo = new HashSet<>();
         for (HashSet<String> subSet : dugumSetleri) {
-            if (subSet.contains(srcAlias)) subSetFrom = subSet;
-            if (subSet.contains(destAlias)) subSetTo = subSet;
+            if (subSet.contains(from)) subSetFrom = subSet;
+            if (subSet.contains(to)) subSetTo = subSet;
             if (subSetFrom == subSetTo) return false;
         }
         return true;
