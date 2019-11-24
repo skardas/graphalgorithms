@@ -23,4 +23,9 @@ public class Kenar implements Comparable<Kenar> {
     public int compareTo(Kenar o) {
         return this.agirlik - o.agirlik;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s--%s",from,to);
+    }
 }

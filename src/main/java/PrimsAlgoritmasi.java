@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.PriorityQueue;
@@ -57,7 +58,7 @@ public class PrimsAlgoritmasi {
         HashSet<String> ziyaret = new HashSet<>();
         ziyaret.add(baslangicDugum);
 
-        PriorityQueue<Kenar> pQueue = new PriorityQueue<>();
+        PriorityQueue<Kenar> pQueue = new PriorityQueue<>(100, Comparator.comparingInt(o -> o.agirlik));
 
         graph.get(baslangicDugum).komsular.forEach((k) -> {
             pQueue.add(k);
