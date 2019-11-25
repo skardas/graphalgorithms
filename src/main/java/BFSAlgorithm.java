@@ -4,10 +4,7 @@
  * and open the template in the editor.
  */
 
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 /**
  *
@@ -42,8 +39,8 @@ public class BFSAlgorithm {
             if (!graph.containsKey(tks[1])) {
                 graph.put(tks[1], new Dugum(tks[1]));
             }
-            graph.get(tks[0]).komsular.add(new Kenar(tks[0], tks[1], Integer.parseInt(tks[2])));
-            graph.get(tks[1]).komsular.add(new Kenar(tks[1], tks[0], Integer.parseInt(tks[2])));
+            graph.get(tks[0]).kenarlar.add(new Kenar(tks[0], tks[1], Integer.parseInt(tks[2])));
+            graph.get(tks[1]).kenarlar.add(new Kenar(tks[1], tks[0], Integer.parseInt(tks[2])));
         }
         bfs(graph, "A");
     }
@@ -59,7 +56,8 @@ public class BFSAlgorithm {
         while(!q.isEmpty()){
             root = q.poll();           
             System.out.print(root.id + ", ");
-            for(Kenar k: root.komsular){
+            root.kenarlar.sort(Comparator.comparing(kenar->kenar.to));
+            for(Kenar k: root.kenarlar){
                 if(!ziyaret.contains(k.to)){
                     ziyaret.add(k.to);
                     q.offer(graph.get(k.to));

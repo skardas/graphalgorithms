@@ -44,9 +44,9 @@ public class PrimsAlgoritmasi {
             if (!graph.containsKey(tks[1])) {
                 graph.put(tks[1], new Dugum(tks[1]));
             }
-            graph.get(tks[0]).komsular.add(new Kenar(tks[0], tks[1], Integer.parseInt(tks[2])));
+            graph.get(tks[0]).kenarlar.add(new Kenar(tks[0], tks[1], Integer.parseInt(tks[2])));
             if (!isDirected) {
-                graph.get(tks[1]).komsular.add(new Kenar(tks[1], tks[0], Integer.parseInt(tks[2])));
+                graph.get(tks[1]).kenarlar.add(new Kenar(tks[1], tks[0], Integer.parseInt(tks[2])));
             }
         }
         System.out.println(minCostOnPrimsAlgorithm(graph, "A"));
@@ -60,7 +60,7 @@ public class PrimsAlgoritmasi {
 
         PriorityQueue<Kenar> pQueue = new PriorityQueue<>(100, Comparator.comparingInt(o -> o.agirlik));
 
-        graph.get(baslangicDugum).komsular.forEach((k) -> {
+        graph.get(baslangicDugum).kenarlar.forEach((k) -> {
             pQueue.add(k);
         });
         int minCost = 0;
@@ -75,7 +75,7 @@ public class PrimsAlgoritmasi {
             minCost += kenar.agirlik;
 
             System.out.print(kenar.from + "-" + kenar.to + ", ");
-            graph.get(kenar.to).komsular.forEach((k) -> {
+            graph.get(kenar.to).kenarlar.forEach((k) -> {
                 pQueue.add(k);
             });
 

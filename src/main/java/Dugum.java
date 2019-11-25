@@ -14,7 +14,7 @@ import java.util.List;
 public class Dugum {
 
     String id;
-    List<Kenar> komsular = new ArrayList<>();
+    List<Kenar> kenarlar = new ArrayList<>();
 
     public Dugum(String id) {
         this.id = id;
