@@ -10,7 +10,7 @@ import java.util.*;
  *
  * @author achilless
  */
-public class DFSAlgorithm1 {
+public class DFSAlgorithm {
     
     public static void main(String[] args) {
         HashMap<String, Dugum> graph = new HashMap<>();
